@@ -2,11 +2,9 @@ package com.obelov.place.register.backend.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -52,9 +50,6 @@ public class ContactData {
 	@NotNull
 	private int longitude;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "contactData")
-	private Place place;
-	
 	public ContactData() {}
 
 	public ContactData(String firstName, String lastName, Long phoneNumber, String country, int city, String street,
@@ -69,21 +64,6 @@ public class ContactData {
 		this.postCode = postCode;
 		this.latitude = latitude;
 		this.longitude = longitude;
-	}
-
-	public ContactData(String firstName, String lastName, Long phoneNumber, String country, int city, String street,
-			String postCode, int latitude, int longitude, Place place) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.phoneNumber = phoneNumber;
-		this.country = country;
-		this.city = city;
-		this.street = street;
-		this.postCode = postCode;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.place = place;
 	}
 
 	public Long getId() {
@@ -166,14 +146,6 @@ public class ContactData {
 		this.longitude = longitude;
 	}
 
-	public Place getPlace() {
-		return place;
-	}
-
-	public void setPlace(Place place) {
-		this.place = place;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -186,7 +158,6 @@ public class ContactData {
 		result = prime * result + latitude;
 		result = prime * result + longitude;
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
-		result = prime * result + ((place == null) ? 0 : place.hashCode());
 		result = prime * result + ((postCode == null) ? 0 : postCode.hashCode());
 		result = prime * result + ((street == null) ? 0 : street.hashCode());
 		return result;
@@ -232,11 +203,6 @@ public class ContactData {
 				return false;
 		} else if (!phoneNumber.equals(other.phoneNumber))
 			return false;
-		if (place == null) {
-			if (other.place != null)
-				return false;
-		} else if (!place.equals(other.place))
-			return false;
 		if (postCode == null) {
 			if (other.postCode != null)
 				return false;
@@ -254,6 +220,6 @@ public class ContactData {
 	public String toString() {
 		return "ContactData [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
 				+ phoneNumber + ", country=" + country + ", city=" + city + ", street=" + street + ", postCode="
-				+ postCode + ", latitude=" + latitude + ", longitude=" + longitude + ", place=" + place + "]";
+				+ postCode + ", latitude=" + latitude + ", longitude=" + longitude + "]";
 	}
 }

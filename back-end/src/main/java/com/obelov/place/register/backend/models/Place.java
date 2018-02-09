@@ -25,6 +25,11 @@ public class Place {
 	
 	@NotNull
 	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="working_hours_id")
+	private WorkingHours workingHours;
+	
+	@NotNull
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="contact_data_id")
 	private ContactData contactData;
 

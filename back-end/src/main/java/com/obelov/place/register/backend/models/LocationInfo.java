@@ -2,11 +2,9 @@ package com.obelov.place.register.backend.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -51,9 +49,6 @@ public class LocationInfo {
 	@Size(max = 250)
 	private String descriptionRu;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "locationInfo")
-	private Place place;
-	
 	public LocationInfo() {}
 	
 	public LocationInfo(String juridicName, String comercialName, String category, String descriptionRo, int discount,
@@ -67,20 +62,6 @@ public class LocationInfo {
 		this.isBroningAvalible = isBroningAvalible;
 		this.averageComandPriceRange = averageComandPriceRange;
 		this.descriptionRu = descriptionRu;
-	}
-	
-	public LocationInfo(String juridicName, String comercialName, String category, String descriptionRo, int discount,
-			boolean isBroningAvalible, String averageComandPriceRange, String descriptionRu, Place place) {
-		super();
-		this.juridicName = juridicName;
-		this.comercialName = comercialName;
-		this.category = category;
-		this.descriptionRo = descriptionRo;
-		this.discount = discount;
-		this.isBroningAvalible = isBroningAvalible;
-		this.averageComandPriceRange = averageComandPriceRange;
-		this.descriptionRu = descriptionRu;
-		this.place = place;
 	}
 
 	public Long getId() {
@@ -155,13 +136,6 @@ public class LocationInfo {
 		this.descriptionRu = descriptionRu;
 	}
 
-	public Place getPlace() {
-		return place;
-	}
-
-	public void setPlace(Place place) {
-		this.place = place;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -176,7 +150,6 @@ public class LocationInfo {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + (isBroningAvalible ? 1231 : 1237);
 		result = prime * result + ((juridicName == null) ? 0 : juridicName.hashCode());
-		result = prime * result + ((place == null) ? 0 : place.hashCode());
 		return result;
 	}
 
@@ -227,11 +200,6 @@ public class LocationInfo {
 			if (other.juridicName != null)
 				return false;
 		} else if (!juridicName.equals(other.juridicName))
-			return false;
-		if (place == null) {
-			if (other.place != null)
-				return false;
-		} else if (!place.equals(other.place))
 			return false;
 		return true;
 	}
