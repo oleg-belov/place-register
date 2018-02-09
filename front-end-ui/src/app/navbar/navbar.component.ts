@@ -31,5 +31,5 @@ export class NavbarComponent {
      // TODO:serviceLogOut;
   }
 
-  // TODO: select lang
+  // TODO: fix select lang in firefox
 }
