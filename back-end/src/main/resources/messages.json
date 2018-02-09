@@ -1,0 +1,158 @@
+{
+	"navBarMessages": {
+		"languages": ["En", "Ro", "Ru"],
+		"logIn": "log in",
+		"logInError": "Email or password wrong",
+		"logOut": "log out",
+		"logOutError": "Log out error, try later."
+	},
+	"footerMessages": {
+		"license": "2013-2017 \"Star-Club\" All rights reserved."
+	},
+	"registrePlaceMessages": {
+		"stape": "Step",
+		"bootonMessages": {
+			"cancel": "Cancel",
+			"next": "Next",
+			"back": "Back",
+			"send": "Send",
+			"upload": "Upload",
+			"remove": "Remove",
+			"error": "Error executing the operation"
+		},
+		"locationInfoMessages": {
+			"name": "LOCATION INFO",
+			"juridicName": "Legal Name",
+			"commercialName": "Commercial Name",
+			"starNetDiscount": "StarNet Discount",
+			"isActivatedBronning": "Activate Bronning",
+			"category": "Category",
+			"categories": ["Cafe", "Restaurant", "Brewery"],
+			"averageComandPrice": "Select the average amount of the unique order",
+			"averageComandPriceRanges": ["150 - 200 Lei", "200 - 300 Lei", "300 - 400 Lei", "400 - 500 Lei"],
+			"descriptionRo": "Description Ro",
+			"descriptionRu": "Description Ru",
+			"fieldMaxLengthError": "The length of the field can not exceed 50 symbols",
+			"testAreaMaxLengthError": "The length of the field can not exceed 250 symbols",
+			"discoundRangeError": "Choose between 7 and 100 %",
+			"requedFieldError": "The field can not be empty",
+			"isNotDigitError": "You can enter only digits",
+			"requedError": "You have to fill all the fields",
+			"error": "Error performing the operation"
+		},
+		"workingHoursMessages": {
+			"name": "ORARUL DE LUCRU",
+			"days":	[
+				{"id": 1, "day": "Luni"},
+				{"id": 2, "day": "Marti"},
+				{"id": 3, "day": "Miercuri"},
+				{"id": 4, "day": "Joi"},
+				{"id": 5, "day": "Vineri"},
+				{"id": 6, "day": "Simbata"},
+				{"id": 7, "day": "Duminica"}
+			], 
+			"fromH": "De la",
+			"toH": "Pina la",
+			"open": "Deschis",
+			"close": "Inchis",
+			"requedError": "Trebuie sa completati toate cimpurile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"contactDataMessages": {
+			"name": "DATEE DE CONTACT",
+			"firstName": "Nume",
+			"lastName": "Prenume",
+			"phoneNumber": "Numarul De Telefon",
+			"country": "Tara",
+			"city": "Oras",
+			"street": "Strada",
+			"postCode": "Cod Postal",
+			"fieldMaxLengthError": "The length of the field can not exceed 50 symbols",
+			"requedFieldError": "Cimpul nu poate fi gol",
+			"requedError": "Trebuie sa completati toate cimpurile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"photosMessages": {
+			"name": "FOTOGRAFII",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesettind hen an unknown printer took a gallery of typ and scrambler it to make a type specimen book, scrambler it to make a type Lorem Ipsum is that it a more-or-less normal.",
+			"minature": "MINIATURA",
+			"banner": "BANNER",
+			"cropImage": "CROP IMAGE",
+			"gallery": "Galerie",
+			"requedError": "Trebuie sa incarcati imaginile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"filtersMessages": {
+			"name": "FILTRE",
+			"message": "SPECIFICATI CARACTERISTICELE LOCALULUI",
+			"specifyLocationCuisine": "Bucatarie",
+			"cuisineTypes": ["Cineza", "Finlandeza", "Moldoveneasca", "Ruseasca", "Georgiana", "Bulgara", "Japoneza", "Franceza", "Italiana", "Greca"],
+			"specifyLocalType": "Tip local",
+			"localTypes": ["Terasa", "Beci", "Alt tip"],
+			"specifyTablesTypes": "Tip mese",
+			"tablesTypes": ["Rotunde", "Patrate", "Alt tip"],
+			"specifySpecialMenu": "Menu special",
+			"specialMenuTypes": ["Busines lunch", "Pentru bere", "Pentru cafea", "Pentru apa", "Pentru ceai", "Pentru fumat"],
+			"requedFieldError": "Cimpul nu poate fi gol",
+			"requedError": "Trebuie sa completati toate cimpurile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"additionsAndPricesMessages": {
+			"name": "ADITIONAL AND PRICES",
+			"specifyAdditionalElements": "Selectati Toate Elementele Aditionale Disponibile",
+			"additionalsElements": [
+				{
+					"imgName": "tagCinCrock.jpg",
+					"tagName": "Chinese crockery"
+				}, 
+				{
+					"imgName": "tagHolidayMenu.jpg",
+					"tagName": "Sarbatorii cu un meniu separat"
+				},
+				{
+					"imgName": "tagTerrace.jpg",
+					"tagName": "Terasa"
+				},
+				{
+					"imgName": "tagPromptDelivery.jpg",
+					"tagName": "Livrare prompta"
+				},
+				{
+					"imgName": "tagUndergroundParking.jpg",
+					"tagName": "Parcare subterana"
+				}
+			],
+			"specifyAdditElAvaiForReservation": "Selectati Toate Elementele Aditionale Disponibile Pentru Bronare",
+			"additElAvaiForReservation": [
+				{
+					"imgName": "tagCinCrock.jpg",
+					"tagName": "Chinese crockery"
+				}, 
+				{
+					"imgName": "tagHolidayMenu.jpg",
+					"tagName": "Sarbatorii cu un meniu separat"
+				},
+				{
+					"imgName": "tagTerrace.jpg",
+					"tagName": "Terasa"
+				},
+				{
+					"imgName": "tagPromptDelivery.jpg",
+					"tagName": "Livrare prompta"
+				},
+				{
+					"imgName": "tagUndergroundParking.jpg",
+					"tagName": "Parcare subterana"
+				}
+			],
+			"requedFieldError": "Cimpul nu poate fi gol",
+			"requedError": "Trebuie sa completati toate cimpurile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"finalMessages": {
+			"congratulation": "Felicitari!",
+			"description": "Acum localul Dvs de a fi transmis la administratorii StarClub la verificare. In scurt timp veti fi contactat de managerul proiectului. Pentru a trimite localul la aprobare selectati butonul trimite.",
+			"error": "Eroare la efectuare operatiunii"
+		}
+	}
+}

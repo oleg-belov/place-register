@@ -1,0 +1,165 @@
+{	
+	"navBarMessages": {
+		"languages": ["Ru", "En", "Ro"],
+		"logIn": "войти",
+		"logInError": "Неправильный емэил или пароль",
+		"logOut": "выйти",
+		"logOutError": "Ошибка при выходе, попробуите посже."
+	},
+	"footerMessages": {
+		"license": "2013-2017 \"Star-Club\" Все права зарезервированны."
+	},
+	"registrePlaceMessages": {
+		"stape": "Шаг",
+		"bootonMessages": {
+			"cancel": "Очистить",
+			"next": "Вперед",
+			"back": "Назад",
+			"send": "Отправить",
+			"upload": "Загрузить",
+			"remove": "Очистить",
+			"error": "Ошибка при выполнений операций"
+		},
+		"locationInfoMessages": {
+			"name": "ИНФОРМАЦИЯ О РАСПОЛОЖЕНИЕ",
+			"juridicName": "Юредическое название",
+			"commercialName": "Комерческое название",
+			"starNetDiscount": "Скидка StarNet",
+			"isActivatedBronning": "Актив. бронирование",
+			"category": "Категория",
+			"categories": ["Кофе", "Рестаран", "Пивная"],
+			"averageComandPrice": "Выберите сумму среднего заказа",
+			"averageComandPriceRanges": ["150 - 200 Лей", "200 - 300 Лей", "300 - 400 Лей", "400 - 500 Лей"],
+			"descriptionRo": "Описание Ro",
+			"descriptionRu": "Описание Ru",
+			"fieldMaxLengthError": "Данное поле не может превышать 50 символов",
+			"testAreaMaxLengthError": "Данное поле не может превышать 250 символов",
+			"discoundRangeError": "Выберите между 7 и 100 %",
+			"requedFieldError": "Данное поле не может быть пустым",
+			"isNotDigitError": "Вы можете ввести только цифры",
+			"requedError": "Вы должны заполнить все поля",
+			"error": "Ошибка при выполнений операций"
+		},
+		"workingHoursMessages": {
+			"name": "РАБОЧЕЕ ВРЕМЯ",
+			"monday": "Понедельник",
+			"tuesday": "Вторник",
+			"wednesday": "Среда",
+			"thursday": "Четверг",
+			"friday": "Пятница",
+			"saturday": "Субота",
+			"sunday": "Воскресенье",
+			"days":	[
+				{"id": 1, "day": "Понедельник"},
+				{"id": 2, "day": "Вторник"},
+				{"id": 3, "day": "Среда"},
+				{"id": 4, "day": "Четверг"},
+				{"id": 5, "day": "Пятница"},
+				{"id": 6, "day": "Субота"},
+				{"id": 7, "day": "Воскресенье"}
+			], 
+			"fromH": "От",
+			"toH": "До",
+			"open": "Открыто",
+			"close": "Закрыто",
+			"requedError": "Вы должны заполнить все поля",
+			"error": "Ошибка при выполнений операций"
+		},
+		"contactDataMessages": {
+			"name": "КОНТАКТНЫЕ ДАННЫЕ",
+			"firstName": "Имя",
+			"lastName": "Фамилия",
+			"phoneNumber": "Номер телефона",
+			"country": "Страна",
+			"city": "Город",
+			"street": "Улица",
+			"postCode": "Почтовый код",
+			"fieldMaxLengthError": "Данное поле не может превышать 50 символов",
+			"requedFieldError": "Данное поле не может быть пустым",
+			"requedError": "Вы должны заполнить все поля",
+			"error": "Ошибка при выполнений операций"
+		},
+		"photosMessages": {
+			"name": "ФОТОГРАФИЙ",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesettind hen an unknown printer took a gallery of typ and scrambler it to make a type specimen book, scrambler it to make a type Lorem Ipsum is that it a more-or-less normal.",
+			"minature": "MINIATURA",
+			"banner": "BANNER",
+			"cropImage": "CROP IMAGE",
+			"gallery": "Galerie",
+			"requedError": "Вы должны загрузить фотографий",
+			"error": "Ошибка при выполнений операций"
+		},
+		"filtersMessages": {
+			"name": "FILTRE",
+			"message": "SPECIFICATI CARACTERISTICELE LOCALULUI",
+			"specifyLocationCuisine": "Bucatarie",
+			"cuisineTypes": ["Cineza", "Finlandeza", "Moldoveneasca", "Ruseasca", "Georgiana", "Bulgara", "Japoneza", "Franceza", "Italiana", "Greca"],
+			"specifyLocalType": "Tip local",
+			"localTypes": ["Terasa", "Beci", "Alt tip"],
+			"specifyTablesTypes": "Tip mese",
+			"tablesTypes": ["Rotunde", "Patrate", "Alt tip"],
+			"specifySpecialMenu": "Menu special",
+			"specialMenuTypes": ["Busines lunch", "Pentru bere", "Pentru cafea", "Pentru apa", "Pentru ceai", "Pentru fumat"],
+			"requedFieldError": "Cimpul nu poate fi gol",
+			"requedError": "Trebuie sa completati toate cimpurile",
+			"error": "Eroare la efectuare operatiunii"
+		},
+		"additionsAndPricesMessages": {
+			"name": "ADITIONAL AND PRICES",
+			"specifyAdditionalElements": "Selectati Toate Elementele Aditionale Disponibile",
+			"additionalsElements": [
+				{
+					"imgName": "tagCinCrock.jpg",
+					"tagName": "Chinese crockery"
+				}, 
+				{
+					"imgName": "tagHolidayMenu.jpg",
+					"tagName": "Sarbatorii cu un meniu separat"
+				},
+				{
+					"imgName": "tagTerrace.jpg",
+					"tagName": "Terasa"
+				},
+				{
+					"imgName": "tagPromptDelivery.jpg",
+					"tagName": "Livrare prompta"
+				},
+				{
+					"imgName": "tagUndergroundParking.jpg",
+					"tagName": "Parcare subterana"
+				}
+			],
+			"specifyAdditElAvaiForReservation": "Selectati Toate Elementele Aditionale Disponibile Pentru Bronare",
+			"additElAvaiForReservation": [
+				{
+					"imgName": "tagCinCrock.jpg",
+					"tagName": "Chinese crockery"
+				}, 
+				{
+					"imgName": "tagHolidayMenu.jpg",
+					"tagName": "Sarbatorii cu un meniu separat"
+				},
+				{
+					"imgName": "tagTerrace.jpg",
+					"tagName": "Terasa"
+				},
+				{
+					"imgName": "tagPromptDelivery.jpg",
+					"tagName": "Livrare prompta"
+				},
+				{
+					"imgName": "tagUndergroundParking.jpg",
+					"tagName": "Parcare subterana"
+				}
+			],
+			"requedFieldError": "Данное поле не может быть пустым",
+			"requedError": "Вы должны заполнить все поля",
+			"error": "Ошибка при выполнений операций"
+		},
+		"finalMessages": {
+			"congratulation": "Felicitari!",
+			"description": "Acum localul Dvs de a fi transmis la administratorii StarClub la verificare. In scurt timp veti fi contactat de managerul proiectului. Pentru a trimite localul la aprobare selectati butonul trimite.",
+			"error": "Ошибка при выполнений операций"
+		}
+	}
+}
