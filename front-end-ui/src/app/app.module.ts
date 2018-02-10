@@ -18,7 +18,10 @@ import { FinalComponent } from './register-place/final/final.component';
 import { LocationInfoComponent } from './register-place/location-info/location-info.component';
 import { PhotosComponent } from './register-place/photos/photos.component';
 import { WorkingHoursComponent } from './register-place/working-hours/working-hours.component';
+import { GoogleMapService } from './services/google-map.service';
+import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
 
 @NgModule({
   declarations: [
@@ -40,11 +43,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     routing,
     FormsModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDT0WaANhOKDfHzdobpRTqXScBuvt05ZfY', libraries: ['places']}),
+    InputMaskModule
   ],
   providers: [
     Messages,
     UserDetails,
-    MessageService
+    MessageService,
+    GoogleMapService
   ],
   bootstrap: [AppComponent]
 })

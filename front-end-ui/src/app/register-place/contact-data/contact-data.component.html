@@ -1,3 +1,137 @@
-<p>
-  contact-data works!
-</p>
+<div class="row">
+	<div class="col pl-0">
+		<h5 class="font-weight-bold text-black">
+			<img class="d-inline-block pb-1 pl-0 mr-2 h-18-px w-4-px" [src]="blockTitleImd">
+			{{ msgs.registrePlaceMessages.contactDataMessages.name }}
+		</h5>
+		<form novalidate [formGroup]="contDataForm" class="row">
+			<div class="col-md-6 pt-4">
+				<div class="form-group pl-0">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.firstName }}</label>
+					<div class="form-control error-block"
+					     *ngIf="firstName.errors && (firstName.dirty || firstName.touched || isSubmited)">
+					  <div *ngIf="firstName.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="firstName.hasError('maxlength')">{{ msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="firstName"
+					       >
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.lastName }}</label>
+					<div class="form-control error-block"
+					     *ngIf="lastName.errors && (lastName.dirty || lastName.touched || isSubmited)">
+					  <div *ngIf="lastName.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="lastName.hasError('maxlength')">{{  msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="lastName"
+					       >
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.phoneNumber }}</label>
+					<div class="form-control error-block"
+					     *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched || isSubmited)">
+					  <div *ngIf="phoneNumber.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="phoneNumber.hasError('maxlength')">{{  msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<p-inputMask mask="+999 99 999 999 999"  styleClass="form-control"
+					       formControlName="phoneNumber"></p-inputMask>
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.country }}</label>
+					<div class="form-control error-block"
+					     *ngIf="country.errors && (country.dirty || country.touched || isSubmited)">
+					  <div *ngIf="country.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="country.hasError('maxlength')">{{ msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="country"
+					       >
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.city }}</label>
+					<div class="form-control error-block"
+					     *ngIf="city.errors && (city.dirty || city.touched || isSubmited)">
+					  <div *ngIf="city.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="city.hasError('maxlength')">{{ msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="city"
+					       >
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.street }}</label>
+					<div class="form-control error-block"
+					     *ngIf="street.errors && (street.dirty || street.touched || isSubmited)">
+					  <div *ngIf="street.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="street.hasError('street')">{{ msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="street"
+					       (blur)="disableAutocomplet()"
+					       (mousedown)="enableAutocomplet()"
+					       (keyup)="enableAutocomplet($event)"
+					       >
+					<div *ngIf="isAutocomplite" (mouseover)="onMouseover()" (mouseout)="onMouseout()">
+						<ul class="list-group" *ngFor="let place of autocompliteResults">
+  							<li class="list-group-item" (click)="autocomplitePlaceCliced(place.id)">{{ place.address }}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="form-group pl-0 pt-3">
+					<label class="center-block">{{ msgs.registrePlaceMessages.contactDataMessages.postCode }}</label>
+					<div class="form-control error-block"
+					     *ngIf="postCode.errors && (postCode.dirty || postCode.touched || isSubmited)">
+					  <div *ngIf="postCode.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
+					  <div *ngIf="postCode.hasError('maxlength')">{{ msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="postCode"
+					       >
+				</div>
+			</div>
+			<div class="col-md-6 pt-5 mt-1">
+				<div class="form-group">
+					<agm-map
+						class="h-653-px"
+						[latitude]="latitude.value" 
+						[longitude]="longitude.value" 
+						[scrollwheel]="false" 
+						[zoom]="zoom" 
+						[draggableCursor]="true"
+						(zoomChange)="onMapZoom($event)"
+						(mapClick)="onMapClicked($event)">
+		   				<agm-marker #map
+		   					[iconUrl]="markerImg"
+		   					[latitude]="latitude.value" 
+		   					[longitude]="longitude.value" 
+		   					[markerClickable]="true" 
+		   					[markerDraggable]="true" 
+		   					[openInfoWindow]="true"
+		   					(markerClick)="onMarkerClick($event)"
+		   					(dragEnd)="onMarkerDragEnd($event)">
+		   					<agm-info-window>
+			          			<strong>InfoWindow content</strong>
+        					</agm-info-window>
+		   				</agm-marker>
+		 			</agm-map>	
+				</div>
+				<div class="row mt-5">
+					<button type="button" class="col btn btn-lg btn-block btn-custom mx-3"
+						(click)="onCancel()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.cancel }}</button>
+					<button type="button" class="col btn btn-lg btn-block btn-success mt-0 mx-3"
+						(click)="onSubmit()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.next }}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -10,7 +10,7 @@ import { FormGroup,  FormControl, Validators  } from '@angular/forms';
   styleUrls: ['./location-info.component.sass']
 })
 export class LocationInfoComponent implements OnInit {
-  blockTitleImd: any = '../../assets/block-title-img.png';
+  blockTitleImd: any = '../../assets/imgs/reg-place/block-title-img.png';
   private id = 1;
   isAutocomplite = false;
   @Output() goNext: EventEmitter<StepObject>;
