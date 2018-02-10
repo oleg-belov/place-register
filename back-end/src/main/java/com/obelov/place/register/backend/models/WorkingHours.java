@@ -56,7 +56,6 @@ public class WorkingHours {
 		this.days = days;
 	}
 	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -41,7 +41,6 @@ public class Day {
 		this.isClosed = isClosed;
 	}
 	
-	
 	public Day(Long id, DayOfWeek dayName, String openFrom, String openTo, boolean is24of24, boolean isClosed) {
 		this.id = id;
 		this.dayName = dayName;
