@@ -18,6 +18,7 @@ import { FinalComponent } from './register-place/final/final.component';
 import { LocationInfoComponent } from './register-place/location-info/location-info.component';
 import { PhotosComponent } from './register-place/photos/photos.component';
 import { WorkingHoursComponent } from './register-place/working-hours/working-hours.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { WorkingHoursComponent } from './register-place/working-hours/working-ho
   imports: [
     BrowserModule,
     HttpClientModule,
-    routing
+    routing,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     Messages,

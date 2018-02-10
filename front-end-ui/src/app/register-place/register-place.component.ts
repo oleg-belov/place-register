@@ -18,8 +18,6 @@ export class RegisterPlaceComponent implements OnInit {
   steps: Step[];
   activStep = 1; // TODO in production = 1
 
-  stepName = 'step';
-
   constructor(public msg: Messages) {
     this.place = new Place();
     this.steps = [

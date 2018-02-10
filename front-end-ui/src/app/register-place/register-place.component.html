@@ -11,8 +11,24 @@
  				<img [src]="(isStatusActiv(step.status) || isStatusPased(step.status))
  					? stepRoundActiv
  					: stepRoundInactiv">
- 				<img *ngIf="i < 6" [src]="shapePath"   class="pb-2 pl-1">
+ 				<img *ngIf="i < 6" [src]="shapePath"   class="pl-1">
  			</div>
  		</div>
+	</div>
+</div>
+<div class="jumbotron bg-white text-secondary">
+	<div class="container" [ngSwitch]="activStep">
+		<div *ngSwitchCase="1" >
+			<app-location-info 
+				[place]="place" 
+				(goNext)="statePased($event)">
+			</app-location-info>
+		</div>
+		<div *ngSwitchDefault>
+			<app-location-info
+				[place]="place" 
+				(goNext)="statePased($event)">
+			</app-location-info>
+		</div>
 	</div>
 </div>

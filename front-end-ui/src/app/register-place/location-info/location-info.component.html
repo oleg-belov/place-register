@@ -1,3 +1,163 @@
-<p>
-  location-info works!
-</p>
+<div class="row">
+	<div class="col-md-12">
+		<h5 class="font-weight-bold text-black">
+			<img class="d-inline-block pb-1 pl-0 mr-2 h-18-px w-4-px" [src]="blockTitleImd">
+			{{ msgs.registrePlaceMessages.locationInfoMessages.name }}
+		</h5>
+		<form novalidate [formGroup]="locationInfoForm"  class="row">
+			<div class="col-md-12 pl-0 pt-4">
+				<div class="col-md-6  form-group">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.juridicName }}</label>
+					<div class="form-control error-block"
+					     *ngIf="juridicName.errors && (juridicName.dirty || juridicName.touched || isAutocomplite)">
+						<div *ngIf="juridicName.errors.required">
+					  		{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+						</div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="juridicName"
+					       [readonly]="true">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group pt-2">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.commercialName }}</label>
+					<div class="form-control error-block"
+					     *ngIf="comercialName.errors && (comercialName.dirty || comercialName.touched || isAutocomplite)">
+					  <div *ngIf="comercialName.errors.required">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+					  </div>
+					  <div *ngIf="comercialName.hasError('maxlength')">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.fieldMaxLengthError }}
+					  </div>
+					</div>
+					<input type="text"
+					       class="form-control"
+					       formControlName="comercialName">
+				</div>
+				<div class="form-group pt-2">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.category }}</label>
+					<div class="form-control error-block"
+					     *ngIf="category.errors && (category.dirty || category.touched || isAutocomplite)">
+					  <div *ngIf="category.errors.required">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+					  </div>
+					  <div *ngIf="category.hasError('maxlength') ">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.fieldMaxLengthError }}
+					  </div>
+					</div>
+					<select class="form-control" formControlName="category" [value]="place.locationInfo.category">
+						<option style="display:none"></option>
+						<option *ngFor="let category of  msgs.registrePlaceMessages.locationInfoMessages.categories">
+							{{ category }}
+						</option>
+					</select>
+				</div>
+				<div class="form-group pt-2">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.descriptionRo }}</label>
+					<div class="form-control error-block"
+					     *ngIf="descriptionRo.errors && (descriptionRo.dirty || descriptionRo.touched || isAutocomplite)">
+					  <div *ngIf="descriptionRo.errors.required">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+					  </div>
+					  <div *ngIf="descriptionRo.hasError('maxlength') ">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.testAreaMaxLengthError }}
+					  </div>
+					</div>
+					<textarea 
+					       class="form-control"
+					       rows="5"
+					       formControlName="descriptionRo">
+					</textarea>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="col-md-12 pl-0">
+					<div class="row">
+						<div class="col-md-6 pt-2 form-group">
+							<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.starNetDiscount }}</label>
+							<div class="form-control error-block"
+							     *ngIf="discount.errors && (discount.dirty || discount.touched || isAutocomplite)">
+							  <div *ngIf="discount.errors.required">
+							  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+							  </div>
+							  <div *ngIf="discount.hasError('max') || discount.hasError('min')">
+							  	{{ msgs.registrePlaceMessages.locationInfoMessages.discoundRangeError }}
+							  </div>
+							  <div *ngIf="discount.hasError('pattern')">
+							  	{{ msgs.registrePlaceMessages.locationInfoMessages.isNotDigitError }}
+							  </div>
+							</div>
+							<div class="input-group">
+								<input type="text"
+								       class="form-control"
+								       formControlName="discount">
+								<div class="input-group-addon">%</div>
+							</div>
+						</div>
+						<div class="col-md-6 pl-4 pt-5 pr-0 form-group">
+							<div class="form-control error-block"
+							     *ngIf="isBroningAvalible.errors && (isBroningAvalible.dirty || isBroningAvalible.touched || isAutocomplite)">
+							  <div *ngIf="isBroningAvalible.errors.required">
+							  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+							  </div>
+							</div>
+							<div class="checkbox">
+								<label  class="center-block">
+									<input type="checkbox"
+								       formControlName="isBroningAvalible">
+								       <span class="pl-2">{{ msgs.registrePlaceMessages.locationInfoMessages.isActivatedBronning }}</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group  pt-2">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.averageComandPrice }}</label>
+					<div class="form-control error-block"
+					     *ngIf="averageComandPriceRange.errors && (averageComandPriceRange.dirty || averageComandPriceRange.touched || isAutocomplite)">
+					  <div *ngIf="averageComandPriceRange.errors.required">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+					  </div>
+					  <div *ngIf="averageComandPriceRange.hasError('maxlength') ">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.fieldMaxLengthError }}
+					  </div>
+					</div>
+					<select class="form-control" formControlName="averageComandPriceRange" 
+						[value]="place.locationInfo.averageComandPriceRange">
+						<option style="display:none"></option>
+						<option 
+							*ngFor="let average of  msgs.registrePlaceMessages.locationInfoMessages.averageComandPriceRanges">
+								{{ average }}
+						</option>
+					</select>
+				</div>
+				<div class="form-group pt-2">
+					<label class="center-block">{{ msgs.registrePlaceMessages.locationInfoMessages.descriptionRu }}</label>
+					<div class="form-control error-block"
+					     *ngIf="descriptionRu.errors && (descriptionRu.dirty || descriptionRu.touched || isAutocomplite)">
+					  <div *ngIf="descriptionRu.errors.required">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.requedFieldError }}
+					  </div>
+					  <div *ngIf="descriptionRu.hasError('maxlength') ">
+					  	{{ msgs.registrePlaceMessages.locationInfoMessages.testAreaMaxLengthError }}
+					  </div>
+					</div>
+					<textarea 
+					       class="form-control"
+					       rows="5"
+					       formControlName="descriptionRu"></textarea>
+				</div>
+				<div class="row mt-5">
+					<button type="button" class="col btn btn-lg btn-block btn-custom mx-3"
+						(click)="onCancel()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.cancel }}</button>
+					<button type="button" class="col btn btn-lg btn-block btn-success mt-0 mx-3"
+						(click)="onSubmit()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.next }}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
