@@ -63,6 +63,8 @@
 			"open": "Открыто",
 			"close": "Закрыто",
 			"requedError": "Вы должны заполнить все поля",
+			"invalidFormatError": "Introducti corect ora 00: 00 - 23:99",
+			"invalidRangeError": "Ati introdus intervalul gresit",
 			"error": "Ошибка при выполнений операций"
 		},
 		"contactDataMessages": {

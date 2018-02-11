@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-md-12" *ngIf="dayForm.errors">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<div class="form-control error-block"
+				     *ngIf="dayForm.dirty || dayForm.touched || isSubmited">
+					<div *ngIf="dayForm.errors.openFromOpenToRequired">
+				  		{{ msgs.registrePlaceMessages.workingHoursMessages.requedError }}
+					</div>
+					<div *ngIf="dayForm.errors.openFromOpenToInvalidFormat">
+				  		{{ msgs.registrePlaceMessages.workingHoursMessages.invalidFormatError }}
+					</div>
+					<div *ngIf="dayForm.errors.openFromOpenToInvalidRange">
+				  		{{ msgs.registrePlaceMessages.workingHoursMessages.invalidRangeError }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<form novalidate [formGroup]="dayForm" class="row">
+			<p class="col-md-4 font-weight-bold text-black my-auto"
+			>{{ msgs.registrePlaceMessages.workingHoursMessages.days[ day.id - 1 ].day }}</p>
+			<div class="col-md-3 form-group mb-0 pr-0">
+				<p-inputMask 
+					mask="99:99"
+					formControlName="openFrom"
+					styleClass="form-control form-control-lg text-center"
+			       	[readonly]="isClosed.value || is24to24.value">
+				</p-inputMask>
+			</div>
+			<img class="d-inline-block h-25 mx-auto my-auto" [src]="dashImd">
+			<div class="col-md-3 form-group mb-0 pl-0">
+				<p-inputMask 
+					mask="99:99"
+					formControlName="openTo"
+					styleClass="form-control form-control-lg text-center"
+			       	[readonly]="isClosed.value || is24to24.value">
+				</p-inputMask>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-6">
+		<div class="row mx-0" role="group" aria-label="Basic example">
+			<button type="button" class="col-4 btn btn-lg btn-block btn-outline-secondary border-right-0 rounded-left rounded-right-0"
+				[class.btn-open]="!isClosed.value && !is24to24.value"
+				(click)="onClickButon('open')"
+			>{{ msgs.registrePlaceMessages.workingHoursMessages.open }}</button>
+			<button type="button" class="col-4 btn btn-lg btn-block btn-outline-secondary border-left-0 border-right-0 mt-0 rounded-0"
+				[class.btn-close]="isClosed.value"
+				(click)="onClickButon('close')"
+			>{{ msgs.registrePlaceMessages.workingHoursMessages.close }}</button>
+			<button type="button" class="col-4 btn btn-lg btn-block btn-outline-secondary border-left-0 mt-0 rounded-right rounded-left-0"
+				[class.btn-open-only]="is24to24.value"
+				(click)="onClickButon('open-only')"
+			>24/24</button>
+		</div>
+	</div>
+</div>

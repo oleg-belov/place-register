@@ -15,20 +15,18 @@ export class RegisterPlaceComponent implements OnInit {
   stepRoundActiv: any = '../assets/imgs/reg-place/step-round-activ.png';
   stepRoundInactiv: any = '../assets/imgs/reg-place/step-round-inactiv.png';
   place: Place;
-  steps: Step[];
-  activStep = 3; // TODO in production = 1
+  steps: Step[] = [];
+  activStep = 2; // TODO in production = 1
 
   constructor(public msg: Messages) {
     this.place = new Place();
-    this.steps = [
-      new Step(1, State.Activ),
-      new Step(2),
-      new Step(3),
-      new Step(4),
-      new Step(5),
-      new Step(6),
-      new Step(7),
-    ];
+    this.steps.push(new Step(1, State.Activ));
+    this.steps.push(new Step(2));
+    this.steps.push(new Step(3));
+    this.steps.push(new Step(4));
+    this.steps.push(new Step(5));
+    this.steps.push(new Step(6));
+    this.steps.push(new Step(7));
   }
 
   ngOnInit() {

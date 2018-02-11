@@ -24,6 +24,13 @@
 				(goNext)="statePased($event)">
 			</app-location-info>
 		</div>
+		<div *ngSwitchCase="2">
+			<app-working-hours
+				[place]="place" 
+				(goBack)="stateInactiv($event)" 
+				(goNext)="statePased($event)">
+			</app-working-hours>
+		</div>
 		<div *ngSwitchCase="3" >
 			<app-contact-data
 				[place]="place" 

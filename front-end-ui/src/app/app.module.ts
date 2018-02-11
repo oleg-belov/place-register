@@ -22,6 +22,7 @@ import { GoogleMapService } from './services/google-map.service';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
+import { WorkingDayComponent } from './register-place/working-hours/working-day/working-day.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
     FinalComponent,
     LocationInfoComponent,
     PhotosComponent,
-    WorkingHoursComponent
+    WorkingHoursComponent,
+    WorkingDayComponent
   ],
   imports: [
     BrowserModule,

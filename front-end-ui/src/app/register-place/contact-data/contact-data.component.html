@@ -37,7 +37,7 @@
 					  <div *ngIf="phoneNumber.errors.required">{{ msgs.registrePlaceMessages.contactDataMessages.requedFieldError }}</div>
 					  <div *ngIf="phoneNumber.hasError('maxlength')">{{  msgs.registrePlaceMessages.contactDataMessages.fieldMaxLengthError }}</div>
 					</div>
-					<p-inputMask mask="+999 99 999 999 999"  styleClass="form-control"
+					<p-inputMask mask="+373 999-99-999"  styleClass="form-control"
 					       formControlName="phoneNumber"></p-inputMask>
 				</div>
 				<div class="form-group pl-0 pt-3">

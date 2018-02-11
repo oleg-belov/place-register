@@ -1,12 +1,14 @@
-import { Day } from './day';
+import { DayMessageMessage } from './day-message';
 
 export class WorkingHoursMessages {
   name: string;
-  days: Day[];
+  days: DayMessageMessage[];
   fromH: string;
   toH: string;
   open: string;
   close: string;
   requedError: string;
+  invalidFormatError: string;
+  invalidRangeError: string;
   error: string;
 }

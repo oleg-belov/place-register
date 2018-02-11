@@ -56,6 +56,8 @@
 			"open": "Deschis",
 			"close": "Inchis",
 			"requedError": "Trebuie sa completati toate cimpurile",
+			"invalidFormatError": "Introducti corect ora 00: 00 - 23:99",
+			"invalidRangeError": "Ati introdus intervalul gresit",
 			"error": "Eroare la efectuare operatiunii"
 		},
 		"contactDataMessages": {
