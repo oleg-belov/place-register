@@ -2,6 +2,7 @@ import { Messages } from '../../messages/messages';
 import { Photos } from '../../models/photos';
 import { Place } from '../../models/place';
 import { StepObject } from '../../models/step-object';
+import { PlaceService } from '../../services/place.service';
 import { Component, OnInit, Output, Input, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -37,7 +38,11 @@ export class PhotosComponent implements OnInit {
   galery: ImageCropperComponent;
   galeryImg: any;
 
-  constructor(public msgs: Messages, private ng2ImgMax: Ng2ImgMaxService, public sanitizer: DomSanitizer) {
+  constructor(
+      public msgs: Messages,
+      private ng2ImgMax: Ng2ImgMaxService,
+      public sanitizer: DomSanitizer,
+      private placeService: PlaceService) {
     this.goNext = new EventEmitter();
     this.goBack = new EventEmitter();
 
@@ -102,9 +107,9 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    // this.place.photos.miniaturePath = this.placeService.savePhoto(this.miniatureImg.img);
-    // this.place.photos.bannerPath = this.placeService.savePhoto((this.bannerImg.img);
-    // this.place.photos.galeryPath = this.placeService.savePhoto((this.galeryImg.img);
+    this.place.photos.miniaturePath = this.placeService.savePhoto(this.miniatureImg.img);
+    this.place.photos.bannerPath = this.placeService.savePhoto(this.bannerImg.img);
+    this.place.photos.galeryPath = this.placeService.savePhoto(this.galeryImg.img);
     this.goNext.emit(new StepObject(this.id, this.place));
   }
 
@@ -123,9 +128,9 @@ export class PhotosComponent implements OnInit {
   }
 
   onGoBack() {
-    // this.place.photos.miniaturePath = this.placeService.savePhoto(this.miniatureImg.img);
-    // this.place.photos.bannerPath = this.placeService.savePhoto(this.bannerImg.img);
-    // this.place.photos.galeryPath = this.placeService.savePhoto(this.galeryImg.img);
+    this.place.photos.miniaturePath = this.placeService.savePhoto(this.miniatureImg.img);
+    this.place.photos.bannerPath = this.placeService.savePhoto(this.bannerImg.img);
+    this.place.photos.galeryPath = this.placeService.savePhoto(this.galeryImg.img);
     this.goBack.emit(new StepObject(this.id, this.place));
   }
 }

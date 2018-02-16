@@ -42,6 +42,8 @@ public class PlaceResorce {
 	public ResponseEntity<Place> addVisit(@RequestBody @Valid Place place, BindingResult bindingResult, UriComponentsBuilder ucBuilder){
 		BindingErrorsResponse errors = new BindingErrorsResponse();
 		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Allow-Origin", "*");
+
 		if(bindingResult.hasErrors() || (place == null)){
 			errors.addAllErrors(bindingResult);
 			headers.add("errors", errors.toJSON());
@@ -81,6 +83,10 @@ public class PlaceResorce {
     public ResponseEntity<Object> uploadImage(@RequestParam("file") MultipartFile file,
     		UriComponentsBuilder ucBuilder) throws IOException {
 		this.placeService.saveImage(file);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Allow-Origin", "*");
+		headers.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		headers.add("Access-Control-Max-Age", "3600");
 		String url = ucBuilder
 				.path("/places/dowland/{name}")
 				.buildAndExpand(file.getOriginalFilename())
@@ -89,7 +95,7 @@ public class PlaceResorce {
     	Map<String, String> map = new HashMap<>();
     	map.put("imgUrl", url);
     	
-    	return new ResponseEntity<Object>(map, HttpStatus.OK);
+    	return new ResponseEntity<Object>(map, headers, HttpStatus.OK);
     }
 	
 	@GetMapping(value = "/dowland/{name:.+}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})

@@ -25,6 +25,7 @@ import { WorkingDayComponent } from './register-place/working-hours/working-day/
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { CustomDropdownDirective } from './directives/custom-dropdown.directive';
+import { PlaceService } from './services/place.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -59,7 +60,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     Messages,
     UserDetails,
     MessageService,
-    GoogleMapService
+    GoogleMapService,
+    PlaceService
   ],
   bootstrap: [AppComponent]
 })

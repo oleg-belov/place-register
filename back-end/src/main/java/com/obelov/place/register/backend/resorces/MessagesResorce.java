@@ -31,6 +31,8 @@ public class MessagesResorce {
     	HttpHeaders headers = new HttpHeaders();
     	headers.add("Set-Cookie", "lang=" + lang);
     	headers.add("Access-Control-Allow-Origin", "*");
+    	headers.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		headers.add("Access-Control-Max-Age", "3600");
 		return new ResponseEntity<JSONObject>(message, headers, HttpStatus.OK);
     }
     

@@ -1,3 +1,21 @@
-<p>
-  final works!
-</p>
+<div class="card text-center border-0">
+	<img class="mx-auto mb-5" [src]="fileImg" alt="File img">
+	<div class="card-body">
+		<h1 class="card-title mb-4">{{ msgs.registrePlaceMessages.finalMessages.congratulation }}</h1>
+		<p class="w-75 mx-auto mb-5 pb-3">{{ msgs.registrePlaceMessages.finalMessages.description }}</p>
+		<button 
+			type="button" 
+			class="col-md-4 mx-auto btn btn-lg btn-block btn-success"
+			(click)="onDoSend()"
+			>{{ msgs.registrePlaceMessages.bootonMessages.send }}
+		</button>
+		<div class="mx-auto mt-4">
+			<p 
+				class="d-inline hover-cp border-bot font-weight-bold"
+				(click)="onGoBack()"
+				>{{ msgs.registrePlaceMessages.bootonMessages.back }}
+			</p>
+		</div>
+	</div>
+	<pre>{{place | json}}</pre>
+</div>

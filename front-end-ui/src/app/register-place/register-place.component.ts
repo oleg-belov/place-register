@@ -3,7 +3,9 @@ import { Place } from '../models/place';
 import { State } from '../models/state.enum';
 import { Step } from '../models/step';
 import { StepObject } from '../models/step-object';
+import { PlaceService } from '../services/place.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-place',
@@ -16,9 +18,9 @@ export class RegisterPlaceComponent implements OnInit {
   stepRoundInactiv: any = '../assets/imgs/reg-place/step-round-inactiv.png';
   place: Place;
   steps: Step[] = [];
-  activStep = 6; // TODO in production = 1
+  activStep = 1;
 
-  constructor(public msg: Messages) {
+  constructor(public msg: Messages,  private router: Router, private placeService: PlaceService) {
     this.place = new Place();
     this.steps.push(new Step(1, State.Activ));
     this.steps.push(new Step(2));
@@ -58,7 +60,19 @@ export class RegisterPlaceComponent implements OnInit {
     this.stateActiv(stepObject.index);
   }
 
-  doSend() {
-    // TODO PlaceService send
+  doSend(): void {
+    this.placeService.savePlace(this.place)
+      .subscribe(
+        data => this.place =  data['place'],
+        error => console.log(error)
+    );
+
+//    this.place = new Place();
+    this.activStep = 1;
+//    this.gotoPlaceRegister();
+  }
+
+  private gotoPlaceRegister(): void {
+    this.router.navigate(['/register', '/place']);
   }
 }
