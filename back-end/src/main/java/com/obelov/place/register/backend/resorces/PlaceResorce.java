@@ -1,11 +1,19 @@
 package com.obelov.place.register.backend.resorces;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,7 +24,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.obelov.place.register.backend.models.Place;
@@ -66,4 +76,30 @@ public class PlaceResorce {
 		
 		return new ResponseEntity<Collection<Place>>(visits, HttpStatus.OK);
 	}
+	
+	@PostMapping(value = "/upload", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Object> uploadImage(@RequestParam("file") MultipartFile file,
+    		UriComponentsBuilder ucBuilder) throws IOException {
+		this.placeService.saveImage(file);
+		String url = ucBuilder
+				.path("/places/dowland/{name}")
+				.buildAndExpand(file.getOriginalFilename())
+				.toUri()
+				.toString();
+    	Map<String, String> map = new HashMap<>();
+    	map.put("imgUrl", url);
+    	
+    	return new ResponseEntity<Object>(map, HttpStatus.OK);
+    }
+	
+	@GetMapping(value = "/dowland/{name:.+}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public ResponseEntity<Resource> downladImage(@PathVariable("name") String fileName) throws FileNotFoundException {
+		File file =  this.placeService.getDowlangImage(fileName);
+		InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+	    return ResponseEntity.ok()
+	            .contentLength(file.length())
+	            .contentType(MediaType.parseMediaType("application/octet-stream"))
+	            .body(resource);
+    }
 }

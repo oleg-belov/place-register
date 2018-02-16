@@ -1,3 +1,157 @@
-<p>
-  photos works!
-</p>
+<div class="row text-black">
+	<div class="col-md-12">
+		<h5 class="font-weight-bold">
+			<img class="d-inline-block pb-1 pl-0 mr-2 h-18-px w-4-px" [src]="blockTitleImd">
+			{{ msgs.registrePlaceMessages.photosMessages.name }}
+		</h5>
+		<div class="row">
+			<div class="col-md-12 pt-4">
+				<p>{{ msgs.registrePlaceMessages.photosMessages.description }}</p> 
+			</div>
+		</div>
+		<div class="row pl-3 mt-5">
+			<div class="col-md-12 pl-0">
+				<p class="d-inline text-black">{{ msgs.registrePlaceMessages.photosMessages.minature | uppercase }}</p>
+				<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+				<input type="file" name="file-miniature" id="file-miniature" class="inputfile" (change)="fileChangeListener($event, 'miniature')"/>
+				<label for="file-miniature" class="btn-upload">{{ msgs.registrePlaceMessages.bootonMessages.upload }}</label>
+				<div 
+					*ngIf="miniatureImg.image" 
+					class="d-inline-block">
+					<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+					<label class="text-danger btn-remove" (click)="onRemove('miniature')">{{ msgs.registrePlaceMessages.bootonMessages.remove }}</label>
+				</div>
+			</div>
+			<div class="col-md-6 pl-0 pr-4">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="border border-dark rounded h-100">
+							<img-cropper 
+								#miniature 
+								[image]="miniatureImg" 
+								[settings]="cropperSettings">
+							</img-cropper>
+						</div>
+		     		</div>
+		    		<div class="col-md-6">
+		    			<div class="border border-dark rounded h-100">
+							<img 
+								*ngIf="miniatureImg.image"
+								[src]="miniatureImg.image" 
+								[width]="cropperSettings.croppedWidth" 
+								[height]="cropperSettings.croppedHeight">
+							</div>
+		    		</div>
+				</div>
+			</div>
+		</div>
+		<div class="row pl-3 mt-5">
+			<div class="col-md-12 pl-0">
+				<div class="row">
+					<div class="col-md-6">
+						<p class="d-inline text-black">{{ msgs.registrePlaceMessages.photosMessages.banner | uppercase }}</p>
+						<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+					    <input type="file" name="file-banner" id="file-banner" class="inputfile" (change)="fileChangeListener($event, 'banner')"/>
+						<label for="file-banner" class="btn-upload">{{ msgs.registrePlaceMessages.bootonMessages.upload }}</label>
+						<div 
+							*ngIf="bannerImg.image" 
+							class="d-inline-block">
+							<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+							<label class="text-danger btn-remove" (click)="onRemove('banner')">{{ msgs.registrePlaceMessages.bootonMessages.remove }}</label>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<p class="d-inline text-black">{{ msgs.registrePlaceMessages.photosMessages.cropImage | uppercase }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 pl-0">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="border border-dark rounded h-100">
+							<img-cropper 
+								#banner 
+								[image]="bannerImg" 
+								[settings]="cropperSettings">
+							</img-cropper>
+						</div>
+		     		</div>
+		    		<div class="col-md-6">
+		    			<div class="border border-dark rounded h-100">
+							<img
+								*ngIf="bannerImg.image"
+								[src]="bannerImg.image" 
+								[width]="cropperSettings.croppedWidth" 
+								[height]="cropperSettings.croppedHeight">
+						</div>
+		    		</div>
+				</div>
+			</div>
+		</div>
+		<div class="row pl-3 mt-5">
+			<div class="col-md-12 pl-0">
+				<div class="row">
+					<div class="col-md-6">
+						<p class="d-inline text-black">{{ msgs.registrePlaceMessages.photosMessages.gallery | uppercase }}</p>
+						<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+						<input type="file" name="file-galery" id="file-galery" class="inputfile" (change)="fileChangeListener($event, 'galery')"/>
+						<label for="file-galery" class="btn-upload">{{ msgs.registrePlaceMessages.bootonMessages.upload }}</label>
+						<div *ngIf="galeryImg.image" class="d-inline-block">
+							<img class="d-inline-block px-1" [src]="shapeImagesButonsSep">
+							<label 
+								class="text-danger btn-remove" 
+								(click)="onRemove('galery')"
+								>{{ msgs.registrePlaceMessages.bootonMessages.remove }}
+							</label>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<p class="d-inline text-black">{{ msgs.registrePlaceMessages.photosMessages.cropImage | uppercase }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 pl-0">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="border border-dark rounded h-100">
+							<img-cropper 
+								#galery
+								[image]="galeryImg"
+								[settings]="cropperSettings">
+							</img-cropper>
+						</div>		
+		     		</div>
+		    		<div class="col-md-6">
+		    			<div class="border border-dark rounded h-100">
+		    				<img 
+								*ngIf="galeryImg.image"
+								[src]="galeryImg.image" 
+								[width]="cropperSettings.croppedWidth" 
+								[height]="cropperSettings.croppedHeight">
+		    			</div>
+		    		</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-md-6">
+				<div class="row">
+					<div  class="col mx-3"></div>
+					<button type="button" class="col btn btn-lg btn-block btn-custom btn-gray mt-0 mx-3"
+						(click)="onGoBack()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.back }}</button>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<button type="button" class="col btn btn-lg btn-block btn-custom mx-3"
+						(click)="onCancel()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.cancel }}</button>
+					<button type="button" class="col btn btn-lg btn-block btn-success mt-0 mx-3"
+						(click)="onSubmit()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.next }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

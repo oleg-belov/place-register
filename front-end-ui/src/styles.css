@@ -1,3 +1,7 @@
 body {
   background: linear-gradient(to right, #dfdfdf , #ffffff);
 }
+
+.btn:hover {
+	cursor: pointer;
+}

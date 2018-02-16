@@ -29,7 +29,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 	"/users/check", 
                 	"/users/create/**", 
                 	"/users/log-in",
-                	"/messages/**")
+                	"/messages/**",
+                	"/places/**")
             	.permitAll()
             .anyRequest().authenticated()
             .and()

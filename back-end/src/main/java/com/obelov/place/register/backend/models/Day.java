@@ -18,7 +18,7 @@ public class Day {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private DayOfWeek dayName;
 	
 	@Pattern(regexp = "\\d{2}:\\d{2}")

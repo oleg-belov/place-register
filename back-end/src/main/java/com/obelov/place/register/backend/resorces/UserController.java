@@ -56,7 +56,7 @@ public class UserController {
 		BindingErrorsResponse errors = new BindingErrorsResponse();
 		HttpHeaders headers = new HttpHeaders();
 		
-		if(bindingResult.hasErrors() || (user == null)){
+		if(bindingResult.hasErrors() || (user == null)) {
 			errors.addAllErrors(bindingResult);
 			headers.add("errors", errors.toJSON());
 			

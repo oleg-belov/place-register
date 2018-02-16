@@ -19,20 +19,25 @@ public class Place {
 	private Long id;
 	
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="location_info_id")
 	private LocationInfo locationInfo;
 	
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="working_hours_id")
 	private WorkingHours workingHours;
 	
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="contact_data_id")
 	private ContactData contactData;
-
+	
+	@NotNull
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="photos_id")
+	private Photos photos;
+	
 	public Long getId() {
 		return id;
 	}

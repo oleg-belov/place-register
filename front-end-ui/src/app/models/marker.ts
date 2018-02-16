@@ -3,9 +3,10 @@ export class Marker {
   private longitude: number;
   private zoom: number;
 
-  constructor(latitude?: number, longitude?: number) {
+  constructor(latitude?: number, longitude?: number, zoom?: number) {
     this.latitude = latitude;
     this.longitude = longitude;
+    this.zoom = zoom;
   }
 
   setLatitude(lat: number): void {

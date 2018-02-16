@@ -37,6 +37,19 @@
 				(goNext)="statePased($event)">
 			</app-contact-data>
 		</div>
+		<div *ngSwitchCase="4">
+			<app-photos
+				[place]="place" 
+				(goBack)="stateInactiv($event)" 
+				(goNext)="statePased($event)">
+			</app-photos>
+		</div>
+		<div *ngSwitchCase="5" >
+			<app-filters [place]="place"
+				(goBack)="stateInactiv($event)" 
+				(goNext)="statePased($event)">
+			</app-filters>
+		</div>
 		<div *ngSwitchDefault>
 			<app-location-info
 				[place]="place" 

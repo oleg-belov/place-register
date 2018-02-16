@@ -48,7 +48,11 @@ export class ContactDataComponent implements OnInit {
     this.createForm();
     this.autocompliteResults = [];
     this.setCurentPosition(
-      this.gMapService.getCurrentPosition());
+      this.place.contData.longitude === null
+        || this.place.contData.latitude === null ?
+          this.gMapService.getCurrentPosition() :
+          new Marker(this.place.contData.latitude, this.place.contData.longitude)
+      );
 
     this.mapsAPILoader.load();
 //      .then(() => {
@@ -156,7 +160,7 @@ export class ContactDataComponent implements OnInit {
       latitude:    marker.getLatitude() || 0,
       longitude: marker.getLongitude() || 0
     });
-    this.zoom = marker.getZoom() || this.zoom || 12;
+    this.zoom = marker.getZoom() || this.zoom || 16;
     if (marker instanceof MarkerWithDetails) {
       this.contDataForm.patchValue({
         country:    marker.getCountry() || '',

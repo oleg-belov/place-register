@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { FooterComponent } from './footer/footer.component';
@@ -23,6 +22,10 @@ import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
 import { WorkingDayComponent } from './register-place/working-hours/working-day/working-day.component';
+import { ImageCropperComponent } from 'ng2-img-cropper';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { CustomDropdownDirective } from './directives/custom-dropdown.directive';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { WorkingDayComponent } from './register-place/working-hours/working-day/
     LocationInfoComponent,
     PhotosComponent,
     WorkingHoursComponent,
-    WorkingDayComponent
+    WorkingDayComponent,
+    ImageCropperComponent,
+    CustomDropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { WorkingDayComponent } from './register-place/working-hours/working-day/
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDT0WaANhOKDfHzdobpRTqXScBuvt05ZfY', libraries: ['places']}),
-    InputMaskModule
+    InputMaskModule,
+    Ng2ImgMaxModule
   ],
   providers: [
     Messages,

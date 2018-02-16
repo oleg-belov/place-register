@@ -16,7 +16,7 @@ export class RegisterPlaceComponent implements OnInit {
   stepRoundInactiv: any = '../assets/imgs/reg-place/step-round-inactiv.png';
   place: Place;
   steps: Step[] = [];
-  activStep = 2; // TODO in production = 1
+  activStep = 5; // TODO in production = 1
 
   constructor(public msg: Messages) {
     this.place = new Place();
