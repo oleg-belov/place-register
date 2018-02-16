@@ -50,6 +50,19 @@
 				(goNext)="statePased($event)">
 			</app-filters>
 		</div>
+		<div *ngSwitchCase="6">
+			<app-additions-and-prices [place]="place"
+				(goBack)="stateInactiv($event)" 
+				(goNext)="statePased($event)">
+			</app-additions-and-prices>
+		</div>
+		<div *ngSwitchCase="7">
+			<app-final
+				[place]="place" 
+				(goBack)="stateInactiv($event)" 
+				(doSend)="doSend()">
+			</app-final>
+		</div>
 		<div *ngSwitchDefault>
 			<app-location-info
 				[place]="place" 

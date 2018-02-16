@@ -1,3 +1,159 @@
-<p>
-  additions-and-prices works!
-</p>
+<div class="row">
+	<div class="col-md-12">
+		<h5 class="font-weight-bold text-black" appCustomDropdown>
+			<img class="d-inline-block pb-1 pl-0 mr-2 h-18-px w-4-px" [src]="blockTitleImd">
+			{{ msgs.registrePlaceMessages.additionsAndPricesMessages.name | uppercase }}
+		</h5>
+		<form novalidate [formGroup]="additionsForm"  class="row">
+			<div class="col-md-12">
+				<div class="form-group pt-2" (mouseleave)="closes('aditional')">
+					<label class="center-block">{{ msgs.registrePlaceMessages.additionsAndPricesMessages.specifyAdditionalElements }}</label>
+					<div class="form-control error-block"
+					     *ngIf="aditional.errors && (aditional.dirty || aditional.touched || isSubmited)">
+					  <div *ngIf="aditional.errors.required || aditional.errors.emptyError">
+					  	{{ msgs.registrePlaceMessages.additionsAndPricesMessages.requedFieldError }}
+					  </div>
+					</div>
+					<div class="row border border-secondary rounded ml-0">
+						<div class="col-md-12 p-1">
+							<div class="row">
+								<div class="col-md-11">
+									<div 
+										class="d-inline-block p-1"
+										*ngFor="let selectedItem of aditional.value">
+										<div
+											class="border border-secondary rounded bg-gray px-2 py-1 d-inline-block"
+											>
+											<img 
+												class="d-inline-block h-50-px w-50-px mr-3" 
+												[src]="iconPath + selectedItem.imgName" 
+												alt="...">
+											<div
+												class="d-inline-block"
+												>{{ selectedItem.tagName }}
+											</div>
+											<span 
+												aria-hidden="true" 
+												class="d-inline-block hover-cp"
+												(click)="addRemoveItem(selectedItem, 'aditional')"
+												>&times;
+											</span>
+										</div>
+									</div>
+								</div>
+								<div 
+									class="col-sm-1 text-right d-inline-block pr-4 hover-cp"
+									(click)="setShow('aditional')"
+								>
+									<img 
+										class="d-inline-block" 
+										[src]="selectIconImg" 
+										alt="...">
+								</div>
+							</div>
+						</div>
+						<div 
+							class="col-md-12 px-0 border border-right-0 border-bottom-0 border-left-0 border-secondary scrol"
+							*ngIf="show('aditional')">
+							<div *ngFor="let elem of  msgs.registrePlaceMessages.additionsAndPricesMessages.additionalsElements">
+								<label 
+									class="center-block bg-onHover d-block my-0 py-2 pl-4"
+									[class.bg-selected]="isSelected(elem, 'aditional')"
+									(click)="addRemoveItem(elem, 'aditional')"
+									><img 
+										class="d-inline-block h-50-px w-50-px mr-3" 
+										[src]="iconPath + elem.imgName" 
+										alt="...">
+										{{ elem.tagName }}
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group pt-2" (mouseleave)="closes('aditionalReserv')">
+					<label class="center-block">{{ msgs.registrePlaceMessages.additionsAndPricesMessages.specifyAdditElAvaiForReservation }}</label>
+					<div class="form-control error-block"
+					     *ngIf="aditionalReserv.errors && (aditionalReserv.dirty || aditionalReserv.touched || isSubmited)">
+					  <div *ngIf="aditionalReserv.errors.required || aditionalReserv.errors.emptyError">
+					  	{{ msgs.registrePlaceMessages.additionsAndPricesMessages.requedFieldError }}
+					  </div>
+					</div>
+					<div class="row border border-secondary rounded ml-0">
+						<div class="col-md-12 p-1">
+							<div class="row">
+								<div class="col-md-11">
+									<div 
+										class="d-inline-block p-1"
+										*ngFor="let selectedItem of aditionalReserv.value">
+										<div
+											class="border border-secondary rounded bg-gray px-2 py-1 d-inline-block"
+											>
+											<img 
+												class="d-inline-block h-50-px w-50-px mr-3" 
+												[src]="iconPath + selectedItem.imgName" 
+												alt="...">
+											{{ selectedItem.tagName }}
+											<span 
+												aria-hidden="true" 
+												class="pl-1 hover-cp"
+												(click)="addRemoveItem(selectedItem, 'aditionalReserv')"
+												>&times;
+											</span>
+										</div>
+									</div>
+								</div>
+								<div 
+									class="col-sm-1 text-right d-inline-block pr-4 hover-cp"
+									(click)="setShow('aditionalReserv')"
+								>
+									<img 
+										class="d-inline-block" 
+										[src]="selectIconImg" 
+										alt="...">
+								</div>
+							</div>
+						</div>
+						<div 
+							class="col-md-12 px-0 border border-right-0 border-bottom-0 border-left-0 border-secondary scrol"
+							*ngIf="show('aditionalReserv')">
+							<div *ngFor="let elem of  msgs.registrePlaceMessages.additionsAndPricesMessages.additElAvaiForReservation">
+								<label 
+									class="center-block bg-onHover d-block my-0 py-2 pl-4"
+									[class.bg-selected]="isSelected(elem, 'aditionalReserv')"
+									(click)="addRemoveItem(elem, 'aditionalReserv')"
+									><img 
+										class="d-inline-block h-50-px w-50-px mr-3" 
+										[src]="iconPath + elem.imgName" 
+										alt="...">
+										{{ elem.tagName }}
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+		<div class="row mt-5">
+			<div class="col-md-6">
+				<div class="row">
+					<div  class="col mx-3"></div>
+					<button type="button" class="col btn btn-lg btn-block btn-custom btn-gray mt-0 mx-3"
+						(click)="onGoBack()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.back }}</button>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<button type="button" class="col btn btn-lg btn-block btn-custom mx-3"
+						(click)="onCancel()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.cancel }}</button>
+					<button type="button" class="col btn btn-lg btn-block btn-success mt-0 mx-3"
+						(click)="onSubmit()"
+					>{{ msgs.registrePlaceMessages.bootonMessages.next }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

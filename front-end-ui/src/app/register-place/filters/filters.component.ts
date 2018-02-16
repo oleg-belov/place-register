@@ -18,10 +18,9 @@ export class FiltersComponent implements OnInit {
   @Output() goBack: EventEmitter<StepObject>;
   @Input() place: Place;
   public filtersForm: FormGroup;
-  public zoom: number;
   public isSubmited = false;
-  public autocompliteResults: object[];
   public curShow = '';
+
   constructor(public msgs: Messages) {
     this.goNext = new EventEmitter();
     this.goBack = new EventEmitter();

@@ -1,3 +1,4 @@
+import { Additions } from './additions';
 import { ContactData } from './contact-data';
 import { Filters } from './filters';
 import { LocationInfo } from './locationinfo';
@@ -12,4 +13,5 @@ export class Place {
   contData: ContactData = new ContactData();
   photos: Photos = new Photos();
   filters: Filters = new Filters();
+  additions: Additions = new Additions();
 }

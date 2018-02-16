@@ -1,9 +1,9 @@
 export class AdditionsAndPricesMessages {
   name: string;
   specifyAdditionalElements: string;
-  additionalsElements: string[];
+  additionalsElements: object;
   specifyAdditElAvaiForReservation: string;
-  additElAvaiForReservation: string[];
+  additElAvaiForReservation: object;
   requedFieldError: string;
   requedError: string;
   error: string;

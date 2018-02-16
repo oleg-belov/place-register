@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Place } from '../../models/place';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-final',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./final.component.sass']
 })
 export class FinalComponent implements OnInit {
+  @Input() place: Place;
 
   constructor() { }
 

@@ -111,46 +111,50 @@
 			"specifyAdditionalElements": "Selectati Toate Elementele Aditionale Disponibile",
 			"additionalsElements": [
 				{
-					"imgName": "tagCinCrock.jpg",
+					"imgName": "tagBusinesLunch.png",
+					"tagName": "Busines Lunch"
+				}, 
+				{
+					"imgName": "tagCinCrock.png",
 					"tagName": "Chinese crockery"
 				}, 
 				{
-					"imgName": "tagHolidayMenu.jpg",
+					"imgName": "tagHolidayMenu.png",
 					"tagName": "Sarbatorii cu un meniu separat"
 				},
 				{
-					"imgName": "tagTerrace.jpg",
+					"imgName": "tagTerrace.png",
 					"tagName": "Terasa"
 				},
 				{
-					"imgName": "tagPromptDelivery.jpg",
+					"imgName": "tagPromptDelivery.png",
 					"tagName": "Livrare prompta"
 				},
 				{
-					"imgName": "tagUndergroundParking.jpg",
+					"imgName": "tagUndergroundParking.png",
 					"tagName": "Parcare subterana"
 				}
 			],
 			"specifyAdditElAvaiForReservation": "Selectati Toate Elementele Aditionale Disponibile Pentru Bronare",
 			"additElAvaiForReservation": [
 				{
-					"imgName": "tagCinCrock.jpg",
+					"imgName": "tagCinCrock.png",
 					"tagName": "Chinese crockery"
 				}, 
 				{
-					"imgName": "tagHolidayMenu.jpg",
+					"imgName": "tagHolidayMenu.png",
 					"tagName": "Sarbatorii cu un meniu separat"
 				},
 				{
-					"imgName": "tagTerrace.jpg",
+					"imgName": "tagTerrace.png",
 					"tagName": "Terasa"
 				},
 				{
-					"imgName": "tagPromptDelivery.jpg",
+					"imgName": "tagPromptDelivery.png",
 					"tagName": "Livrare prompta"
 				},
 				{
-					"imgName": "tagUndergroundParking.jpg",
+					"imgName": "tagUndergroundParking.png",
 					"tagName": "Parcare subterana"
 				}
 			],
