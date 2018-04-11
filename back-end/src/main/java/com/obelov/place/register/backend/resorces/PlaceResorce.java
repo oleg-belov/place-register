@@ -42,7 +42,6 @@ public class PlaceResorce {
 	public ResponseEntity<Place> addVisit(@RequestBody @Valid Place place, BindingResult bindingResult, UriComponentsBuilder ucBuilder){
 		BindingErrorsResponse errors = new BindingErrorsResponse();
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Access-Control-Allow-Origin", "*");
 
 		if(bindingResult.hasErrors() || (place == null)){
 			errors.addAllErrors(bindingResult);
@@ -84,9 +83,7 @@ public class PlaceResorce {
     		UriComponentsBuilder ucBuilder) throws IOException {
 		this.placeService.saveImage(file);
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Access-Control-Allow-Origin", "*");
-		headers.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-		headers.add("Access-Control-Max-Age", "3600");
+
 		String url = ucBuilder
 				.path("/places/dowland/{name}")
 				.buildAndExpand(file.getOriginalFilename())
